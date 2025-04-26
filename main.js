@@ -29,39 +29,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Create floating particles in the hero section
 function initializeParticles() {
-    const particlesContainer = document.querySelector('.particles');
-    if (!particlesContainer) return;
-    
-    const particleCount = window.innerWidth < 768 ? 15 : 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
+    try {
+        const particlesContainer = document.querySelector('.particles');
+        if (!particlesContainer) return;
         
-        // Random size between 5px and 20px
-        const size = Math.random() * 15 + 5;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
+        const particleCount = window.innerWidth < 768 ? 15 : 30;
         
-        // Random position
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        
-        // Random animation duration
-        const duration = Math.random() * 10 + 10;
-        particle.style.animationDuration = `${duration}s`;
-        
-        // Random delay
-        const delay = Math.random() * 5;
-        particle.style.animationDelay = `${delay}s`;
-        
-        // Random opacity
-        particle.style.opacity = Math.random() * 0.5 + 0.1;
-        
-        particlesContainer.appendChild(particle);
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size between 5px and 20px
+            const size = Math.random() * 15 + 5;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random animation duration
+            const duration = Math.random() * 10 + 10;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            const delay = Math.random() * 5;
+            particle.style.animationDelay = `${delay}s`;
+            
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+            
+            particlesContainer.appendChild(particle);
+        }
+    } catch (error) {
+        console.error("Error initializing particles:", error);
     }
 }
-
+        
 // Initialize scroll observer to trigger animations when sections come into view
 function initializeSectionObserver() {
     const sections = document.querySelectorAll('.section');
