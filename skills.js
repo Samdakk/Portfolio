@@ -198,8 +198,7 @@ function initializeSkillChart() {
                 // Stop observing once triggered
                 observer.unobserve(entry.target);
             }
-        });
-    } , {
+        }); // Closing for entries.forEach
     }, {
         threshold: 0.1
     });
