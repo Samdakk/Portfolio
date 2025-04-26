@@ -157,6 +157,7 @@ const portfolioData = {
 
 // Function to populate the website with the portfolio data
 function updatePortfolioInformation() {
+    console.log('updatePortfolioInformation');
     // Update personal information
     updatePersonalInfo();
     
@@ -272,6 +273,9 @@ function updateProjects() {
         });
     }
 }
+
+// Add a console.log to check if the data is being loaded
+console.log('portfolioData:', portfolioData);
 
 // Function to update skills data in the chart
 function updateSkillsData() {

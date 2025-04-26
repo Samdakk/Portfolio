@@ -192,7 +192,7 @@ function initializeSkillChart() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 setTimeout(() => {
-                    chart.resize();
+                    window.skillsChart.resize();
                 }, 100);
                 
                 // Stop observing once triggered

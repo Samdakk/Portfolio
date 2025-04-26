@@ -1,10 +1,12 @@
 // Main JavaScript file that initializes and manages the portfolio functionality
+console.log('main.js initialized');
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Document ready!');
     
     // Initialize all components
     initializeParticles();
-    initializeAnimations();
+    initializeGsapAnimations();
     initializeSectionObserver();
     initializeContactForm();
     
