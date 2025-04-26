@@ -3,15 +3,6 @@ body {
     overflow-x: hidden;
     background-color: #f8f9ff;
 }
-@media (max-width: 768px) {
-    .custom-cursor, .cursor-dot {
-        display: none;
-    }
-    .section {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-}
 /* Sections */
 .section {
     opacity: 0;

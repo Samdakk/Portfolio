@@ -285,7 +285,7 @@ function updateSkillsData() {
     };
     
     // Check if ECharts instance exists and is ready
-    if (window.echarts && window.skillsChart) {
+    if (echarts && window.skillsChart) {
         window.skillsChart.setOption({
             yAxis: {
                 data: window.portfolioSkillsData.categories
