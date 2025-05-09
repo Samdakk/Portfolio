@@ -1,3 +1,6 @@
+Currently there is an error that I was unable to solve due to lack of time making orders, the way to preview it would be by cloning it, it still does not have my imported projects but if their names and descriptions, I wanted to have it completely done before importing my projects just to be safe. 
+
+
 # 3D Portfolio
 
 This is my personal portfolio website showcasing my skills and projects as a full stack developer.
