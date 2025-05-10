@@ -204,4 +204,3 @@ function initializeSkillChart() {
     });
     
     observer.observe(chartContainer)
-}

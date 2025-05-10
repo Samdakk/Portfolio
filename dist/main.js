@@ -1,3 +1,5 @@
+import '../input.css';
+
 // Main JavaScript file that initializes and manages the portfolio functionality
 console.log('main.js initialized');
 
