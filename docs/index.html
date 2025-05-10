@@ -1,14 +1,519 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Portfolio/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <script type="module" crossorigin src="/Portfolio/assets/index-CS9IIJmz.js"></script>
-    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-D8b4DHJx.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Portfolio</title>
+    <link rel="icon" href="/Portfolio/assets/favicon-DcH8Kg-2.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#6366f1',
+                        secondary:'#8b5cf6'
+                    },
+                    borderRadius:{
+                        'none':'0px',
+                        'sm':'4px',
+                        DEFAULT:'8px',
+                        'md':'12px',
+                        'lg':'16px',
+                        'xl':'20px',
+                        '2xl':'24px',
+                        '3xl':'32px',
+                        'full':'9999px',
+                        'button':'8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-DFFT9ApX.css">
+</head>
+<body class="relative">
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+    <!-- Hero Section -->
+    <section id="hero" class="section flex items-center justify-center min-h-screen relative overflow-hidden">
+        <div class="particles"></div>
+        <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary">John Doe</span></h1>
+                <p class="text-xl md:text-2xl mb-2">Full Stack Developer</p>
+                <p class="text-gray-600 mb-8 text-lg">Creating innovative web experiences with modern technologies</p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#projects" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl whitespace-nowrap">View Projects</a>
+                    <a href="#contact" class="border-2 border-primary text-primary px-8 py-3 rounded-button font-medium hover:bg-primary hover:text-white transition-all whitespace-nowrap">Contact Me</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="cube-face front">
+                            <i class="ri-reactjs-line ri-3x text-primary"></i>
+                        </div>
+                        <div class="cube-face back">
+                            <i class="ri-nodejs-line ri-3x text-primary"></i>
+                        </div>
+                        <div class="cube-face right">
+                            <i class="ri-database-2-line ri-3x text-primary"></i>
+                        </div>
+                        <div class="cube-face left">
+                            <i class="ri-code-s-slash-line ri-3x text-primary"></i>
+                        </div>
+                        <div class="cube-face top">
+                            <i class="ri-terminal-box-line ri-3x text-primary"></i>
+                        </div>
+                        <div class="cube-face bottom">
+                            <i class="ri-cloud-line ri-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
+                <div class="tilt-card bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <div class="icon-circle bg-primary bg-opacity-10 text-primary rounded-full p-5 mb-4">
+                        <i class="ri-code-box-line ri-2x"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">Web Development</h3>
+                    <p class="text-gray-600">Crafting responsive, performant websites and web applications using modern frameworks and technologies.</p>
+                </div>
+                <div class="tilt-card bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <div class="icon-circle bg-primary bg-opacity-10 text-primary rounded-full p-5 mb-4">
+                        <i class="ri-smartphone-line ri-2x"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">Mobile Development</h3>
+                    <p class="text-gray-600">Building cross-platform mobile applications that deliver seamless user experiences across devices.</p>
+                </div>
+                <div class="tilt-card bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                    <div class="icon-circle bg-primary bg-opacity-10 text-primary rounded-full p-5 mb-4">
+                        <i class="ri-database-2-line ri-2x"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3">Backend Development</h3>
+                    <p class="text-gray-600">Designing robust server-side architectures and APIs that power modern web applications.</p>
+                </div>
+            </div>
+            <div class="mt-16 p-8 bg-gray-50 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-4 text-center md:text-left">My Journey</h3>
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-1/3">
+                        <img src="/Portfolio/assets/Developer-avatar-DaZcJ4S9.jpg" alt="Developer Profile" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-gray-700 mb-4">I am a passionate Full Stack Developer with 5+ years of experience building web and mobile applications. My journey in tech started when I built my first website at 15, and I've been hooked ever since.</p>
+                        <p class="text-gray-700 mb-4">With a background in Computer Science and continuous self-learning, I've developed expertise in both frontend and backend technologies, allowing me to create complete, production-ready applications.</p>
+                        <p class="text-gray-700">I enjoy working on challenging projects that push me to learn new skills and technologies. When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new frameworks.</p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">TypeScript</span>
+                            <span class="badge">React</span>
+                            <span class="badge">Vue.js</span>
+                            <span class="badge">Node.js</span>
+                            <span class="badge">Express</span>
+                            <span class="badge">MongoDB</span>
+                            <span class="badge">PostgreSQL</span>
+                            <span class="badge">Docker</span>
+                            <span class="badge">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <!-- Skill Card 1 -->
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold text-xl mb-3">Frontend Development</h3>
+                            <p class="text-gray-600 mb-4">Creating intuitive and responsive user interfaces with modern frameworks</p>
+                            <div class="mt-auto">
+                                <button class="skill-flip-btn bg-primary text-white px-4 py-2 rounded-button">See Skills</button>
+                            </div>
+                        </div>
+                        <div class="skill-card-back bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold text-xl mb-4">Frontend Skills</h3>
+                            <!-- Skill Progress Bars -->
+                            <div class="skill-progress">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">React</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Vue.js</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">CSS/SCSS</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Tailwind CSS</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="90"></div>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button class="skill-flip-btn bg-primary text-white px-4 py-2 rounded-button">Go Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold text-xl mb-3">Backend Development</h3>
+                            <p class="text-gray-600 mb-4">Building robust and scalable server-side applications and APIs</p>
+                            <div class="mt-auto">
+                                <button class="skill-flip-btn bg-primary text-white px-4 py-2 rounded-button">See Skills</button>
+                            </div>
+                        </div>
+                        <div class="skill-card-back bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold text-xl mb-4">Backend Skills</h3>
+                            <!-- Skill Progress Bars -->
+                            <div class="skill-progress">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Node.js</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Express</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">MongoDB</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">PostgreSQL</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="75"></div>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button class="skill-flip-btn bg-primary text-white px-4 py-2 rounded-button">Go Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold text-xl mb-3">DevOps & Tools</h3>
+                            <p class="text-gray-600 mb-4">Implementing CI/CD, containerization, and cloud services</p>
+                            <div class="mt-auto">
+                                <button class="skill-flip-btn bg-primary text-white px-4 py-2 rounded-button">See Skills</button>
+                            </div>
+                        </div>
+                        <div class="skill-card-back bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold text-xl mb-4">DevOps Skills</h3>
+                            <!-- Skill Progress Bars -->
+                            <div class="skill-progress">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Docker</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">AWS</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">CI/CD</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress mt-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Git</span>
+                                    <span class="text-sm font-medium skill-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="95"></div>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button class="skill-flip-btn bg-primary text-white px-4 py-2 rounded-button">Go Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill Chart -->
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">Skill Overview</h3>
+                <div id="skill-chart" class="h-80 w-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="project-img-container">
+                        <div class="project-img bg-gradient-to-r from-primary to-secondary h-48 flex items-center justify-center">
+                            <i class="ri-shopping-cart-2-line ri-3x text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">A full-featured online store with product catalog, user accounts, and payment processing.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-github-fill mr-1"></i> GitHub
+                            </a>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-external-link-line mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="project-img-container">
+                        <div class="project-img bg-gradient-to-r from-primary to-secondary h-48 flex items-center justify-center">
+                            <i class="ri-message-3-line ri-3x text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Chat Application</h3>
+                        <p class="text-gray-600 mb-4">Real-time messaging platform with user authentication and message persistence.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">WebSockets</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-github-fill mr-1"></i> GitHub
+                            </a>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-external-link-line mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="project-img-container">
+                        <div class="project-img bg-gradient-to-r from-primary to-secondary h-48 flex items-center justify-center">
+                            <i class="ri-dashboard-3-line ri-3x text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Interactive data visualization platform for monitoring business metrics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-github-fill mr-1"></i> GitHub
+                            </a>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline">
+                                <i class="ri-external-link-line mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="input-field" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="input-field" placeholder="Your email">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="5" class="input-field" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-all w-full">Send Message</button>
+                    </form>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-full p-3 mr-4">
+                                <i class="ri-map-pin-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p class="text-gray-600">San Francisco, CA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-full p-3 mr-4">
+                                <i class="ri-mail-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p class="text-gray-600">john.doe@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-full p-3 mr-4">
+                                <i class="ri-phone-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-3">Connect with me</h4>
+                            <div class="flex gap-4">
+                                <a href="#" class="social-icon">
+                                    <i class="ri-linkedin-fill ri-lg"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="ri-github-fill ri-lg"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="ri-twitter-fill ri-lg"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="ri-dribbble-line ri-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-pacifico">John Doe</h2>
+                    <p class="text-gray-300 mt-2">Full Stack Developer</p>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                    <a href="#hero" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2023 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/animations.js"></script>
+    <script src="/main.js"></script>
+    <script src="/cursor.js"></script>
+    <script src="/cube.js"></script>
+    <script src="/portfolio-data.js"></script>
+    <script src="/skills.js"></script>
+</body>
 </html>
