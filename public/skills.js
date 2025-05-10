@@ -202,5 +202,5 @@ function initializeSkillChart() {
     }, {
         threshold: 0.1
     });
-    
+}  
     observer.observe(chartContainer)
